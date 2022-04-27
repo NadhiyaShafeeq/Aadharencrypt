@@ -1,4 +1,4 @@
-import json
+import os
 from flask import Flask, request
 from src.service.decryptData import genDecryptedData
 from src.service.encryptData import genEncryptedData

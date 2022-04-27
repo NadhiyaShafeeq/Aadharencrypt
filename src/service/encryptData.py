@@ -1,5 +1,6 @@
 import json
 from flask import jsonify
+from src.helper.sendmessagetophone import sendMessageToPhone
 from src.helper.aes import AESCipher
 
 
@@ -12,4 +13,5 @@ def genEncryptedData(data):
         "phoneNumber": data['phoneNumber'],
     }
     result = AESCipher(sha255_key).encrypt(json.dumps(details))
+    sendMessageToPhone(result)
     return jsonify({"encryptData": result})
